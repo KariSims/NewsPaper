@@ -4,25 +4,28 @@
         <link rel="stylesheet" href="presentation.css" type="text/css"/>
         <script src="presentation.js" type="text/javascript"></script>
     </head>
-    <body>
+    <body onload="">
         <header class="en-tete">
             <div id="logo"></div>
             <div id="recherche"></div>
-            <div id="info-supp">
-                <i><b>Accueil</b></i>
-                <i><b>Contacts</b></i>
-                <i><b>Developpeurs</b></i>
+            <div id="onglets">
+                <i class="onglet"><b>Accueil</b></i>
+                <i class="onglet"><b>Contacts</b></i>
+                <i class="onglet"><b>Developpeurs</b></i>
             </div>
         </header>
         <main>
-            <aside id="col-3">
-                <li>Catégorie</li>
-                <li>Catégorie</li>
-                <li>Catégorie</li>
-                <li>Catégorie</li>
+            <aside id="col-3" class="categories">
+                <div class="titre-categorie">Toutes les Catégories</div>
+                <div class="categorie">
+                    <a>Catégorie</a>
+                    <a>Catégorie</a>
+                    <a>Catégorie</a>
+                    <a>Catégorie</a>
+                </div>
             </aside>
-            <section id="col-9">
-                <p id="titre-article">The overflow property controls what happens to content that is too big to fit into an area.</p>
+            <section id="col-9" class="contenu-principal">
+                <h2 id="titre-article">The overflow property controls what happens to content that is too big to fit into an area.</h2>
                 <div id="overflowTest">
                     <p>This text is really long and the height of its container is only 100 pixels.
                     Therefore, a scrollbar is added to help the reader to scroll the content. Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. 
