@@ -1,24 +1,24 @@
 <?php
-    require 'connexionBD.php';
-
+    
     function listerCategories(){
-        $res = connexionBD();
-        $categories = $res->query('SELECT * FROM categorie;');
-
-        if($categories==null){echo Vide;}
+        require 'connexionBD.php';
+            $res = connexionBD();
+        echo parse_str($connex);
+        $categories = $res->prepare("SELECT * FROM categorie;");
 
         // $rows = $categories->fetchAll();
 
-        foreach($categories as $categorie) {
-            printf("$categorie['libelle']\n");
-        }
-        /*
+        // foreach($categories as $categorie) {
+        //     printf("$categorie['libelle']\n");
+        // }
+        
         while($categorie = $categories->fetch()){
             $libelle = $categorie['libelle'];
-            ?>
+            return  $libelle;
+            /*?>
             <a id="categorie"><?= $libelle ?></a>
-            <?php
-        } */
+            <?php */
+        }
     }
-    // close();
+
 ?>

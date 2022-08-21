@@ -27,7 +27,7 @@
                     <a>Catégorie</a> -->
                     <?php
                         include('services.php');
-                        listerCategories();
+                        echo listerCategories();
                     ?>
                 </div>
             </aside>
