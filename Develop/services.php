@@ -2,13 +2,23 @@
     require 'connexionBD.php';
 
     function listerCategories(){
-        $categories = $connex->query("SELECT * FROM categorie;");
+        $res = connexionBD();
+        $categories = $res->query('SELECT * FROM categorie;');
 
-        while($categorie = $categories->fetch()){
-            $titre = $articles['titre'];
-            ?>
-            <a id="categorie"><?= $titre ?></a>
-            <?php
+        if($categories==null){echo Vide;}
+
+        // $rows = $categories->fetchAll();
+
+        foreach($categories as $categorie) {
+            printf("$categorie['libelle']\n");
         }
+        /*
+        while($categorie = $categories->fetch()){
+            $libelle = $categorie['libelle'];
+            ?>
+            <a id="categorie"><?= $libelle ?></a>
+            <?php
+        } */
     }
+    // close();
 ?>

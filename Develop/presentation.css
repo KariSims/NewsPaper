@@ -57,6 +57,7 @@ body{
 main{
     box-sizing: border-box;
     display: flexbox;
+    z-index: -1;
 }
 
 aside{

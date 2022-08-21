@@ -17,7 +17,7 @@
         </header>
         <div id="titre-principal">LE SITE OFFICIEL D'INFORMATIONS</div>
         <main>
-            <?php include('services.php'); ?>
+            
             <aside id="col-3" class="categories">
                 <div class="titre-categorie">Toutes les Catégories</div>
                 <div class="categorie">
@@ -25,7 +25,10 @@
                     <a>Catégorie</a>
                     <a>Catégorie</a>
                     <a>Catégorie</a> -->
-                    <?php listerCategories(); ?>
+                    <?php
+                        include('services.php');
+                        listerCategories();
+                    ?>
                 </div>
             </aside>
             <section id="col-9" class="contenu-principal">
