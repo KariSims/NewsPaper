@@ -1,24 +1,18 @@
 <?php
-    
-    function listerCategories(){
-        require 'connexionBD.php';
-            $res = connexionBD();
-        echo parse_str($connex);
-        $categories = $res->prepare("SELECT * FROM categorie;");
+    include_once "connexionBD.php";
 
-        // $rows = $categories->fetchAll();
+class desServices extends linkDB{
 
-        // foreach($categories as $categorie) {
-        //     printf("$categorie['libelle']\n");
-        // }
+    public function listerCategories(){
         
+        $categories = $this->connexionBD()->query("SELECT * FROM categorie;");
+
         while($categorie = $categories->fetch()){
             $libelle = $categorie['libelle'];
-            return  $libelle;
-            /*?>
+            ?>
             <a id="categorie"><?= $libelle ?></a>
-            <?php */
+            <?php
         }
     }
-
-?>
+}
+/*?>*/

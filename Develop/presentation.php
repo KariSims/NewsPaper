@@ -1,6 +1,11 @@
+<?php
+    include_once 'services.php';
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
+        <meta charset="utf-8" />
         <link rel="stylesheet" href="presentation.css" type="text/css"/>
         <script src="presentation.js" type="text/javascript"></script>
     </head>
@@ -26,8 +31,8 @@
                     <a>Catégorie</a>
                     <a>Catégorie</a> -->
                     <?php
-                        include('services.php');
-                        echo listerCategories();
+                        $obj = new desServices;
+                        $obj->listerCategories();
                     ?>
                 </div>
             </aside>
@@ -272,7 +277,7 @@
                 </div>
             </section>
         </main>
-    <footer><b>&copy; Copyright 2022 - DIT2</b></footer>
+    <footer><b>&copy; Copyright <?= date('Y')?> - DIT2</b></footer>
     </body>
 
 

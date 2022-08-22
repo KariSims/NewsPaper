@@ -1,7 +1,9 @@
 <?php
-        $host = 'mysql:host=192.168.1.6;dbname=mglsi_news';
+        // $host = 'mysql:host=192.168.1.6;dbname=mglsi_news';
+        $host = 'mysql:host=localhost;dbname=mglsi_news';
         $user = 'visiteur';
         $passwd = 'p@sser';
+        $connex = "null";
 ?>
 
 <!-- 
