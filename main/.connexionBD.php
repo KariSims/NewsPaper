@@ -1,5 +1,5 @@
 <?php
-    include ("configBD.php");
+    include (".configBD.php");
 
 class linkDB{
     public function connexionBD(){

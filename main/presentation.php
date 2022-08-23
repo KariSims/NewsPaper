@@ -5,7 +5,8 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <meta charset="utf-8" />
+        <title>Informations en continue</title>
+        <meta http-equiv="X-UA-Compatible" charset="utf-8"/>
         <link rel="stylesheet" href="presentation.css" type="text/css"/>
         <script src="presentation.js" type="text/javascript"></script>
     </head>
@@ -34,7 +35,7 @@
             </aside>
             <section id="col-9">
                 <?php
-                    $obj->articleParCategorie();
+                    $obj->listerArticles();
                 ?>
             </section>
         </main>

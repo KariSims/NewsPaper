@@ -1,6 +1,6 @@
 <?php
-        $host = 'mysql:host=192.168.1.7;dbname=mglsi_news';
-        // $host = 'mysql:host=localhost;dbname=mglsi_news';
+        // $host = 'mysql:host=192.168.1.7;dbname=mglsi_news';
+        $host = 'mysql:host=localhost;dbname=mglsi_news';
         $user = 'lambda';
         $passwd = 'p@sser';
 ?>

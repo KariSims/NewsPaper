@@ -31,14 +31,14 @@ class desServices extends linkDB{
         }
     }
 
-    public function articleParCategorie($idCategorie){
+    // public function articleParCategorie($idCategorie){
 
-        $articles = $this->connexionBD()->query("SELECT * FROM article WHERE categorie = ".$idCategorie);
+    //     $articles = $this->connexionBD()->query("SELECT * FROM article WHERE categorie = ".$idCategorie);
 
-        while($article = $articles->fetch()){
-            $titre   = $article['titre'];
-            $contenu = $article['contenu'];
-            ?>
+    //     while($article = $articles->fetch()){
+    //         $titre   = $article['titre'];
+    //         $contenu = $article['contenu'];
+            /*?>
 
                 <a id="titre-article"><?= $titre ?></a>
                 <p id="contenu-principal"><?= $contenu ?></p>
@@ -46,6 +46,6 @@ class desServices extends linkDB{
             <?php
         }
 
-    }
+    }*/
 }
 /*?>*/
