@@ -126,6 +126,9 @@ footer{
     color: rgb(68, 65, 65);
     font-family: 'Segoe UI bold', Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
+    cursor: pointer;
+    border: 1px solid #ccc;
+    border-radius: 3px;
 }
 
 .onglet-select{

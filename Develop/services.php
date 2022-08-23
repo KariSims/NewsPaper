@@ -24,7 +24,7 @@ class desServices extends linkDB{
             $contenu = $article['contenu'];
             ?>
 
-                <h2 id="titre-article"><?= $titre ?></h2>
+                <a id="titre-article"><?= $titre ?></a>
                 <p id="contenu-principal"><?= $contenu ?></p>
 
             <?php
