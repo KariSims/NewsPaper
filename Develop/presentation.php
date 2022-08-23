@@ -14,10 +14,10 @@
             <div id="logo"></div>
             <div id="recherche"></div>
             <div id="onglets">
-                <a class="onglet"><b>Accueil</b></a>
+                <a class="onglet" href=""><b>Accueil</b></a>
                 <a class="onglet"><b>Contacts</b></a>
                 <a class="onglet"><b>Developpeurs</b></a>
-                <a class="onglet"><b>connexion</b></a>
+                <a class="onglet" href=""><b>connexion</b></a>
             </div>
         </header>
         <div id="titre-principal">LE SITE OFFICIEL D'INFORMATIONS</div>
@@ -34,8 +34,7 @@
             </aside>
             <section id="col-9">
                 <?php
-                    // $obj = new desServices;
-                    $obj->listerArticles();
+                    $obj->articleParCategorie();
                 ?>
             </section>
         </main>

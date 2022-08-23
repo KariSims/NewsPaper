@@ -1,5 +1,5 @@
 <?php
-    include "connexionBD.php";
+    include ".connexionBD.php";
 
 class desServices extends linkDB{
 
@@ -29,6 +29,23 @@ class desServices extends linkDB{
 
             <?php
         }
+    }
+
+    public function articleParCategorie($idCategorie){
+
+        $articles = $this->connexionBD()->query("SELECT * FROM article WHERE categorie = ".$idCategorie);
+
+        while($article = $articles->fetch()){
+            $titre   = $article['titre'];
+            $contenu = $article['contenu'];
+            ?>
+
+                <a id="titre-article"><?= $titre ?></a>
+                <p id="contenu-principal"><?= $contenu ?></p>
+
+            <?php
+        }
+
     }
 }
 /*?>*/
