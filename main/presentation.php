@@ -15,7 +15,7 @@
             <div id="logo"></div>
             <div id="recherche"></div>
             <div id="onglets">
-                <a class="onglet" href=""><b>Accueil</b></a>
+                <a class="onglet" href="presentation.php"><b>Accueil</b></a>
                 <a class="onglet"><b>Contacts</b></a>
                 <a class="onglet"><b>Developpeurs</b></a>
                 <a class="onglet" href=""><b>connexion</b></a>
@@ -26,16 +26,15 @@
             
             <aside id="col-3" class="categories">
                 <div class="titre-categorie">Toutes les Catégories</div>
-                <div class="categorie">
+
                     <?php
                         $obj = new desServices;
                         $obj->listerCategories();
                     ?>
-                </div>
             </aside>
             <section id="col-9">
                 <?php
-                    $obj->listerArticles();
+                    include 'controleur.php';
                 ?>
             </section>
         </main>

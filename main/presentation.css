@@ -80,9 +80,9 @@ aside{
 .categorie{
     display: flex;
     flex-direction: column;
-    margin-top: 5%;
-    margin-left: 8%;
-    line-height: 180%;
+    margin-top: 3%;
+    margin-left: 10%;
+    line-height: 160%;
     font-size: large;
     cursor: pointer;
 }
@@ -114,6 +114,7 @@ footer{
     justify-content: center;
     color: rgb(68, 65, 65);
 }
+
 /* Niveau 2 */
 
 #titre-article{
@@ -127,7 +128,7 @@ footer{
     font-family: 'Segoe UI bold', Tahoma, Geneva, Verdana, sans-serif;
     font-style: italic;
     cursor: pointer;
-    border: 1px solid #ccc;
+    border: 0.2px solid #ccc;
     border-radius: 3px;
 }
 
@@ -147,4 +148,10 @@ footer{
     margin-left: 0.3%;
     margin-bottom: 0.2%;
     border: 1px solid rgb(204, 204, 204);
+}
+
+/* Niveau 3 */
+#forMore{
+    float: right;
+    text-align: end;
 }

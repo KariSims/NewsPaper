@@ -8,9 +8,10 @@ class desServices extends linkDB{
         $categories = $this->connexionBD()->query("SELECT * FROM categorie;");
 
         while($categorie = $categories->fetch()){
+            $idCategorie = $categorie['id'];
             $libelle = $categorie['libelle'];
             ?>
-            <a id="categorie"><?= $libelle ?></a>
+            <a class="categorie" href="presentation.php?categorie=<?=$idCategorie?>"><?= $libelle ?></a>
             <?php
         }
     }
@@ -18,6 +19,41 @@ class desServices extends linkDB{
     public function listerArticles(){
 
         $articles = $this->connexionBD()->query("SELECT * FROM article;");
+
+        while($article   = $articles->fetch()){
+            $idArticle   = $article['id'];
+            $titre       = $article['titre'];
+            $contenu     = $article['contenu'];
+            $idCategorie = $article['categorie'];
+            ?>
+
+                <a id="titre-article" id="titre-article" href="presentation.php?categorie=<?=$idCategorie?>&article=<?=$idArticle?>"><?= $titre ?></a>
+                <p id="contenu-principal"><?= substr($contenu,0,120)?> &nbsp<a href="presentation.php?categorie=<?=$idCategorie?>&article=<?=$idArticle?>">more...</a></p>
+
+            <?php
+        }
+    }
+
+    public function articlesParCategorie($idCategorie){
+
+        $articles = $this->connexionBD()->query("SELECT * FROM article WHERE categorie = ".$idCategorie);
+
+        while($article = $articles->fetch()){
+            $idArticle = $article['id'];
+            $titre     = $article['titre'];
+            $contenu   = $article['contenu'];
+            ?>
+
+                <a id="titre-article" href="presentation.php?categorie=<?=$idCategorie?>&article=<?=$idArticle?>"><?= $titre ?></a>
+                <p id="contenu-principal"><?= $contenu ?></p>
+
+            <?php
+        }
+    }
+
+    public function lireArticle($idCategorie,$idArticle){
+
+        $articles = $this->connexionBD()->query("SELECT * FROM article WHERE categorie = ".$idCategorie." AND id= ".$idArticle);
 
         while($article = $articles->fetch()){
             $titre   = $article['titre'];
@@ -30,22 +66,5 @@ class desServices extends linkDB{
             <?php
         }
     }
-
-    // public function articleParCategorie($idCategorie){
-
-    //     $articles = $this->connexionBD()->query("SELECT * FROM article WHERE categorie = ".$idCategorie);
-
-    //     while($article = $articles->fetch()){
-    //         $titre   = $article['titre'];
-    //         $contenu = $article['contenu'];
-            /*?>
-
-                <a id="titre-article"><?= $titre ?></a>
-                <p id="contenu-principal"><?= $contenu ?></p>
-
-            <?php
-        }
-
-    }*/
 }
 /*?>*/
