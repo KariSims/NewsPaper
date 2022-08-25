@@ -1,5 +1,5 @@
 <?php
-    include ".connexionBD.php";
+    include "../.config/.connexionBD.php";
 
 class desServices extends linkDB{
 

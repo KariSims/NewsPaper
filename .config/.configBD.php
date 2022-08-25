@@ -9,5 +9,8 @@
     CREATE ROLE 'visiteurs'@'%';
     GRANT ALL ON mglsi_news.* TO 'visiteurs';
     CREATE USER visiteur IDENTIFIED BY 'p@sser' DEFAULT ROLE visiteurs WITH MAX_QUERIES_PER_HOUR 20 MAX_USER_CONNECTIONS 2;
-    flush privileges; 
- -->
+    flush privileges;
+
+    ALTER USER visiteur WITH MAX_QUERIES_PER_HOUR 20000;
+-->
+

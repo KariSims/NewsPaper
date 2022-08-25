@@ -149,9 +149,3 @@ footer{
     margin-bottom: 0.2%;
     border: 1px solid rgb(204, 204, 204);
 }
-
-/* Niveau 3 */
-#forMore{
-    float: right;
-    text-align: end;
-}
