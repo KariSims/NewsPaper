@@ -1,5 +1,4 @@
 <?php
-
     $mesServices = new desServices;
 
     if(!isset($_GET['categorie'])){
@@ -15,5 +14,11 @@
             $idArticle   = (int) $_GET['article'];
             $obj->lireArticle($idCategorie,$idArticle);
         }
+        if(isset($_GET['categorie']) === "connexion"){
+            // require '../auth/Login.php';
+            // $obj->login();
+            echo $_GET['categorie'];
+        }
+
     }
 ?>

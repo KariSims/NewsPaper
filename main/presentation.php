@@ -16,9 +16,8 @@
             <div id="recherche"></div>
             <div id="onglets">
                 <a class="onglet" href="presentation.php"><b>Accueil</b></a>
-                <a class="onglet"><b>Contacts</b></a>
                 <a class="onglet"><b>Developpeurs</b></a>
-                <a class="onglet" href=""><b>connexion</b></a>
+                <a class="onglet" href="presentation.php?connexion=tentative"><b>connexion</b></a>
             </div>
         </header>
         <div id="titre-principal">LE SITE OFFICIEL D'INFORMATIONS</div>
@@ -34,11 +33,16 @@
             </aside>
             <section id="col-9">
                 <?php
-                    include 'controleur.php';
+                    if(isset($_GET['connexion'])=='tentative'){
+                        $obj->login();
+                    }
+                    else{
+                        include 'controleur.php';
+                    }
                 ?>
             </section>
         </main>
-    <footer><b>&copy; Copyright <?= date('Y')?> - DIT2</b></footer>
+    <footer><b>&copy; Copyright <?= date('Y')?> - DIT2</b>&nbsp ~~~ &nbsp<span class="contact"><a id="mail" href="mailto:samsonmww@gmail.com">&nbsp Nous contacter</a></span></footer>
     </body>
 
 

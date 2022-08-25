@@ -29,5 +29,19 @@ INSERT INTO Article (titre, contenu, categorie) VALUES ('SAMSUN', 'Lorem ipsum d
 
 ALTER TABLE Article ADD CONSTRAINT fk_categorie_article FOREIGN KEY(categorie) REFERENCES Categorie(id);
 
+CREATE TABLE Profil(
+	id int primary key auto_increment,
+	pseudoName varchar(100),
+	username varchar(100),
+	passwd varchar(250),
+	privilege int,
+	constraint profil_chk CHECK (privilege = 1 or privilege = 2)
+) ENGINE InnoDB CHARACTER SET utf8;
+
+INSERT INTO Profil
+		VALUES (0, 'SP SIMS', 'sims@esp.sn', 'passer', 1),
+				(0, 'SAM', 'sam@esp.sn', 'passer', 2),
+				(0, 'Sakhir', 'fall@esp.sn', 'passer', 2);
+
 -- GRANT ALL PRIVILEGES ON mglsi_news.* TO visiteur IDENTIFIED BY 'p@sser';
 -- Première victoire du Sénégal  

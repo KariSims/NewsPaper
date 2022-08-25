@@ -11,7 +11,7 @@ session_start();
             define('DB_SERVER', 'localhost');
             define('DB_USERNAME', 'root');
             define('DB_PASSWORD', '');
-            define('DB_NAME', 'myspacedb');
+            define('DB_NAME', 'mglsi_news');
             
             // Connexion à la base de données MySQL 
             $linkDb = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -22,17 +22,17 @@ session_start();
                 die("ERREUR : Impossible de se connecter à la base. " . mysqli_connect_error());
             }
 
-            if( (isset($_POST['email'])) && (isset($_POST['password'])) ){
+            if( (isset($_POST['username'])) && (isset($_POST['password'])) ){
                 //Recuperation des informations
-                //$mail = stripslashes($_REQUEST['email']); $mail = mysqli_real_escape_string($linkDb , $mail);
+                //$mail = stripslashes($_REQUEST['username']); $mail = mysqli_real_escape_string($linkDb , $mail);
                 //$password = stripslashes($_REQUEST['password']); $password = mysqli_real_escape_string($linkDb , $password);
                 
-                $mail = $_POST['email'] ; $pwd =  $_POST['password'] ;
+                $mail = $_POST['username'] ; $pwd =  $_POST['password'] ;
 
                 //Veriification des informations dans la base
                 //var_dump($mail,$pwd );
-                //$verifinfo="SELECT * FROM utilisateur WHERE email='$mail' and MotDePasse='".hash('sha256', $pwd)."';";
-                $verifinfo="SELECT * FROM utilisateur WHERE email='$mail';";
+                //$verifinfo="SELECT * FROM utilisateur WHERE username='$mail' and passwd='".hash('sha256', $pwd)."';";
+                $verifinfo="SELECT * FROM utilisateur WHERE username='$mail';";
                 //print_r($verifinfo);
 
                 $result = mysqli_query($linkDb, $verifinfo) ;
@@ -42,21 +42,16 @@ session_start();
                 $champ = mysqli_fetch_array($result);
                 //print_r($champ);
                 if (($result) && ($rows > 0)) {
-                    if (password_verify($pwd, $champ['MotDePasse'])){
+                    if (password_verify($pwd, $champ['passwd'])){
                         //Recuperation des valeurs du tableau
-                        $name = $champ['nom'];
-                        $prename = $champ['prenom'];
-                        $telephone = $champ['telephone'];
-                        $passwd = $champ['MotDePasse'];
-                        $id = $champ['IdUser'];
-                        $username = $prename." ".$name;
+                        $name = $champ['pseudoName'];
+                        $passwd = $champ['passwd'];
+                        $id = $champ['id'];
+                        $username = $champ['username'];
                         //Recuperation des variables de session
-                        $_SESSION['username'] = $username;
-                        $_SESSION['mail'] = $mail;
-                        $_SESSION['nom'] = $name;
-                        $_SESSION['prenom'] = $prename;
-                        $_SESSION['telephone'] = $telephone;
-                        $_SESSION['motdepasse'] = $passwd;
+                        $_SESSION['username'] = $name;
+                        $_SESSION['mail'] = $username;
+                        $_SESSION['passwd'] = $passwd;
                         $_SESSION['id'] = $id ; 
 
                         header("Location: ../index.php");
@@ -66,7 +61,7 @@ session_start();
                             header("location:Login.php?erreur=$message");      
                     }
                 }else{
-                    $message = "Email incorrect!";
+                    $message = "username incorrect!";
                     header("location:Login.php?erreur=$message");
                 }
             }else{

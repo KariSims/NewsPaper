@@ -66,5 +66,35 @@ class desServices extends linkDB{
             <?php
         }
     }
+
+    public function login(){
+        $msg="*" ;
+        ?>
+            <form class="formulaireC" method="post" action="Traitement.php">
+
+            <h1>Connexion à Votre Espace Personnel</h1>
+            
+            <p class="choose-email">en utilisant mes identifiants</p>
+            
+            <div class="inputs">
+                    <input type="email" name="email" id="email" placeholder="Email Exemple : name@mail.com" size="40" maxlength="50" required />
+                    <input type="password" name="password" id="password" placeholder="Mot de passe" required />
+            </div>
+                    <?php if (isset($_GET['erreur'])){ ?>
+                         <p class="error-Msgdb1"><?php echo $_GET['erreur'];} else ?> </p>
+                         <p class="error-Msgdb2"> <?php echo $msg;  ?></p>
+
+                    <?php if (!empty($errormessageDB)){?> <p class="error-Msgdb"><?php echo $errormessageDB; ?> </p><?php } ?>
+                    
+            <div align="center">
+                <button class="connecter" type="submit">Se connecter</button>
+            </div>
+                <p class="inscription">Cliquez sur <span>S'inscrire</span> pour créér un compte</p>        
+            </form>
+            <div align="center">
+                <a  href="Inscription.php"><button class="inscrire" type="submit">S'inscrire</button></a>
+            </div>
+        <?php
+    }
 }
 /*?>*/

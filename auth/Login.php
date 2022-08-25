@@ -12,7 +12,7 @@
         define('DB_SERVER', 'localhost');
         define('DB_USERNAME', 'root');
         define('DB_PASSWORD', '');
-        define('DB_NAME', 'myspacedb');
+        define('DB_NAME', 'mglsi_news');
         
         // Connexion à la base de données MySQL 
         $linkDb = mysqli_connect(DB_SERVER, DB_USERNAME, DB_PASSWORD, DB_NAME);
@@ -62,7 +62,7 @@
             <p class="choose-email">en utilisant mes identifiants</p>
             
             <div class="inputs">
-                    <input type="email" name="email" id="email" placeholder="Email Exemple : Christvit@message.com" size="40" maxlength="50" required />
+                    <input type="email" name="email" id="email" placeholder="Email Exemple : name@mail.com" size="40" maxlength="50" required />
                     <input type="password" name="password" id="password" placeholder="Mot de passe" required />
             </div>
                     <?php if (isset($_GET['erreur'])){ ?>
@@ -83,7 +83,7 @@
 </div>
  <!----> 
     <footer>
-                <p class="copyright">Tous droits reservés à Samson || <span class="contact"><a id="mail" href="mailto:samsonmww@gmail.com">Nous contacter</a></span></p>
+                <p class="copyright">Tous droits reservés à Samson</p>
     </footer>
     
 </body>
