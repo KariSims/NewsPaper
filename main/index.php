@@ -41,6 +41,9 @@
                         $pswd     =  $_POST['passwd'] ;
                         $obj->verifyLogin($username, $pswd);
                     }
+                    elseif(isset($_GET['form'])=='noninscrit'){
+                        $obj->inscriptionForm();
+                    }
                     else{
                         include 'controleur.php';
                     }

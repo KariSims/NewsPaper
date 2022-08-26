@@ -100,8 +100,42 @@ class desServices extends linkDB{
                 <p class="inscription">Cliquez sur <span>Inscrire</span> afin de créér un compte pour Inscrire un membre</p>        
             </form>
             <div align="center">
-                <a  href="index.php?connexion=inscrit"><button class="inscrire" type="submit">Inscrire</button></a>
+                <a  href="index.php?form=noninscrit"><button class="inscrire" type="submit">Inscrire</button></a>
             </div>
+        <?php
+    }
+    public function inscriptionForm(){
+        $msg="message transparent";
+        $messageresult="message transparent";
+        ?>
+
+        <link rel="stylesheet" href="../.style/inscription.css" type="text/css"/>
+
+
+            <form class="formulaire" method="post" action="">
+                <h1><i class="fas fa-handshake"></i> Inscription d'un nouveau membre <i class="far fa-handshake"></i></h1>
+                    <div class="inputs">
+                        <input type="text" name="nom" id="nom" placeholder="Saisir le pseudo" minlength="3" required />
+                        <input type="email" name="email" id="email" placeholder="Saisir l'email" size="40" minlength="9"  maxlength="50" required/>
+                        <input type="tel" name="tel" id="tel"  placeholder="le nivea de privilege de l'inscrit(e)" required/>   
+                        <input type="password" name="Mdp" id="Mdp" placeholder="Saisir votre mot de passe" minlength="8" required/>
+                        <p class="warning">Un caractère spécial, une lettre majuscule ou un chiffre est réquis*</p>
+                        <input type="password" name="Mdp2" id="Mdp2" minlength="8" required placeholder="Confirmer votre mot de passe"/>
+                    
+                    </div>
+                    <span class ="invisible">
+                    <?php if (empty($messageresult)) { ?>
+                        <p class="error-Msg1"><?php echo $msg; }  else  ?> </p>
+                        <p class="error-Msg2"><?php echo  $messageresult;  ?> </p>
+                    </span>
+
+                    <?php  if (!empty($errormessageDB)){ ?><p class="error-Msg"><?php echo $errormessageDB; ?> </p><?php } ?>
+                    <div align="center">
+                        <button class="inscrire" type="submit">S'inscrire</button>
+                        <p class="connect">Cliquez sur <span>Connexion</span>, pour vous connecter!</p>
+                    </div>
+                    <a href="index.php?connexion=tentative" class="connecter" >Connexion</a>
+            </form>
         <?php
     }
 
