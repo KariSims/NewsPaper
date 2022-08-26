@@ -1,5 +1,5 @@
 <?php
-    include 'services.php';
+    include './services.php';
 ?>
 
 <!DOCTYPE html>
@@ -35,6 +35,11 @@
                 <?php
                     if(isset($_GET['connexion'])=='tentative'){
                         $obj->loginForm();
+                    }
+                    elseif(isset($_GET['action'])=='inscrit'){
+                        $username = $_POST['username'] ;
+                        $pswd   =  $_POST['passwd'] ;
+                        $obj->verifyLogin($username, $pswd);
                     }
                     else{
                         include 'controleur.php';

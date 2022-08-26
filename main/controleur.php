@@ -13,9 +13,5 @@
             $idArticle   = (int) $_GET['article'];
             $obj->lireArticle($idCategorie,$idArticle);
         }
-        if(isset($_GET['connexion'])=='tentative'){
-            $obj->loginForm();
-        }
-
     }
 ?>

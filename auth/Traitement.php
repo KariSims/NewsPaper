@@ -7,13 +7,8 @@ session_start();
 
     $username = $_POST['username'] ;
     $pwd =  $_POST['passwd'] ;
-    // echo $username."'$username'";
 
-    // $users = $traitement->connexionBD()->query("SELECT id FROM profil WHERE username = "."'$username'");
-    // while($user = $users->fetch()){
-    //     echo $user['id'];
-    // }
-    $users = $traitement->connexionBD()->query("SELECT * FROM profil WHERE username = "."'$username'");
+    $users = $traitement->connexionBD()->query("SELECT * FROM profil WHERE username = "."'$username'"." AND passwd = "."'$pwd'");
 
         if($user = $users->fetch()){
             if($user['username']==$username && $user['passwd']==$pwd){
@@ -28,7 +23,7 @@ session_start();
                 $_SESSION['passwd'] = $pwd;
                 $_SESSION['id'] = $id ;
 
-                header("Location: presentation.php");
+                header("Location: ../main/presentation.php");
             }
             else{
                 $message = "Identifiants incorrects!";

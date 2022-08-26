@@ -76,7 +76,8 @@ class desServices extends linkDB{
         ?>
         <link rel="stylesheet" href="../.style/connexion.css" type="text/css"/>
 
-            <form class="formulaire" method="post" action="../auth/Traitement.php">
+            <form class="formulaire" method="post" action="presentation.php?action=inscrit">
+            <!-- <form class="formulaire" method="post" action="../auth/Traitement.php"> -->
 
             <h1>Connexion à Votre Espace Personnel</h1>
             
@@ -87,6 +88,7 @@ class desServices extends linkDB{
                     <input type="password" name="passwd" id="password" placeholder="Mot de passe" required />
             </div>
                     <?php if (isset($_GET['erreur'])){ ?>
+                        
                          <p class="error-Msgdb1"><?php echo $_GET['erreur'];} else ?> </p>
                          <p class="error-Msgdb2"> <?php echo $msg;  ?></p>
 
@@ -103,32 +105,30 @@ class desServices extends linkDB{
         <?php
     }
 
-    public function verifyLogin($username, $passwd){
-
-        $username = $_POST['username'] ;
-        $passwd =  $_POST['passwd'] ;
-
-        $users = $this->connexionBD()->query("SELECT * FROM profil WHERE username = ".$username);
+    public function verifyLogin($username, $pswd){
+   
+        $profils = $this->connexionBD()->query("SELECT * FROM profil WHERE username = "."'$username'"." AND passwd = "."'$pswd'");
+        
         try{
-            if($user = $users->fetch()){
-                if($user['username']==$username && $user['passwd']==$passwd){
 
-                    $name = $user['pseudoName'];
-                    $passwd = $user['passwd'];
-                    $id = $user['id'];
+            if($user = $profils->fetch()){
+
+                if($user['username']==$username && $user['passwd']==$pswd){
+
+                    $name     = $user['pseudoName'];
+                    $pwd      = $user['passwd'];
+                    $id       = $user['id'];
                     $username = $user['username'];
                     //Recuperation des variables de session
                     $_SESSION['username'] = $name;
-                    $_SESSION['mail'] = $username;
-                    $_SESSION['passwd'] = $passwd;
-                    $_SESSION['id'] = $id ;
+                    $_SESSION['mail']     = $username;
+                    $_SESSION['passwd']   = $pwd;
+                    $_SESSION['id']       = $id ;
 
-                    header("Location: presentation.php");
+                    header("Location: ../index.php");
                 }
-                else{
-                    $message = "Identifiants incorrects!";
-                    header("location:presentation.php?erreur=$message");
-                }
+            }else{
+                $this->loginForm();
             }
         }
         catch(PDOException $erreur){
