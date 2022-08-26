@@ -32,10 +32,11 @@ ALTER TABLE Article ADD CONSTRAINT fk_categorie_article FOREIGN KEY(categorie) R
 CREATE TABLE Profil(
 	id int primary key auto_increment,
 	pseudoName varchar(100),
-	username varchar(100),
+	username varchar(100) unique,
 	passwd varchar(250),
 	privilege int,
-	constraint profil_chk CHECK (privilege = 1 or privilege = 2)
+	constraint profil_chk CHECK (privilege = 1 or privilege = 2),
+	constraint uc_profil UNIQUE (username)
 ) ENGINE InnoDB CHARACTER SET utf8;
 
 INSERT INTO Profil

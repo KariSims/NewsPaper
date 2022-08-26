@@ -3,6 +3,10 @@
 
 class desServices extends linkDB{
 
+    // private function requeterUneFois(){
+
+    // }
+
     public function listerCategories(){
         
         $categories = $this->connexionBD()->query("SELECT * FROM categorie;");
@@ -67,18 +71,20 @@ class desServices extends linkDB{
         }
     }
 
-    public function login(){
+    public function loginForm(){
         $msg="*" ;
         ?>
-            <form class="formulaireC" method="post" action="Traitement.php">
+        <link rel="stylesheet" href="../.style/connexion.css" type="text/css"/>
+
+            <form class="formulaire" method="post" action="../auth/Traitement.php">
 
             <h1>Connexion à Votre Espace Personnel</h1>
             
-            <p class="choose-email">en utilisant mes identifiants</p>
+            <p class="choose-email">en utilisant vos identifiants d'Editeur ou d'Admin</p>
             
             <div class="inputs">
-                    <input type="email" name="email" id="email" placeholder="Email Exemple : name@mail.com" size="40" maxlength="50" required />
-                    <input type="password" name="password" id="password" placeholder="Mot de passe" required />
+                    <input type="email" name="username" id="email" placeholder="Exemple Email : name@mail.com" size="40" maxlength="50" required />
+                    <input type="password" name="passwd" id="password" placeholder="Mot de passe" required />
             </div>
                     <?php if (isset($_GET['erreur'])){ ?>
                          <p class="error-Msgdb1"><?php echo $_GET['erreur'];} else ?> </p>
@@ -89,12 +95,45 @@ class desServices extends linkDB{
             <div align="center">
                 <button class="connecter" type="submit">Se connecter</button>
             </div>
-                <p class="inscription">Cliquez sur <span>S'inscrire</span> pour créér un compte</p>        
+                <p class="inscription">Cliquez sur <span>Inscrire</span> afin de créér un compte pour Inscrire un membre</p>        
             </form>
             <div align="center">
-                <a  href="Inscription.php"><button class="inscrire" type="submit">S'inscrire</button></a>
+                <a  href="presentation.php?connexion=inscrit"><button class="inscrire" type="submit">Inscrire</button></a>
             </div>
         <?php
+    }
+
+    public function verifyLogin($username, $passwd){
+
+        $username = $_POST['username'] ;
+        $passwd =  $_POST['passwd'] ;
+
+        $users = $this->connexionBD()->query("SELECT * FROM profil WHERE username = ".$username);
+        try{
+            if($user = $users->fetch()){
+                if($user['username']==$username && $user['passwd']==$passwd){
+
+                    $name = $user['pseudoName'];
+                    $passwd = $user['passwd'];
+                    $id = $user['id'];
+                    $username = $user['username'];
+                    //Recuperation des variables de session
+                    $_SESSION['username'] = $name;
+                    $_SESSION['mail'] = $username;
+                    $_SESSION['passwd'] = $passwd;
+                    $_SESSION['id'] = $id ;
+
+                    header("Location: presentation.php");
+                }
+                else{
+                    $message = "Identifiants incorrects!";
+                    header("location:presentation.php?erreur=$message");
+                }
+            }
+        }
+        catch(PDOException $erreur){
+            die('Erreur de connexion : '.$erreur->getMessage());
+        }
     }
 }
 /*?>*/

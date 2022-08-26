@@ -7,7 +7,7 @@
     <head>
         <title>Informations en continue</title>
         <meta http-equiv="X-UA-Compatible" charset="utf-8"/>
-        <link rel="stylesheet" href="presentation.css" type="text/css"/>
+        <link rel="stylesheet" href="../.style/presentation.css" type="text/css"/>
         <script src="presentation.js" type="text/javascript"></script>
     </head>
     <body onload="">
@@ -34,7 +34,7 @@
             <section id="col-9">
                 <?php
                     if(isset($_GET['connexion'])=='tentative'){
-                        $obj->login();
+                        $obj->loginForm();
                     }
                     else{
                         include 'controleur.php';

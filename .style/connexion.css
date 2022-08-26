@@ -1,0 +1,271 @@
+/* @import url('https://fonts.googleapis.com/css?family=Montserrat|Open+Sans|Roboto');  */
+.formulaire {
+  margin-top: -50px;
+  padding: 40px 60px;
+  border-radius: 30px;
+  min-width: 300px;
+  background-color: #fff;
+}
+
+form h1{
+    color: #535771;
+    text-align:center;
+  }
+form p.choose-email{
+    text-align:center;
+  }
+form .inputs {
+    display: flex;
+    flex-direction: column;
+  }
+
+form .inputs input[type='email'], input[type='password']{
+    padding: 15px;
+    Border : none;
+    border-radius: 50px;
+    background-color:#f5f5f5;
+    outline: none;
+    margin-bottom: 15px;
+    font-family: 'Montserrat',  'Roboto', sans-serif;
+  }
+
+.error-Msgdb1{
+    font-family: 'Montserrat',  'Roboto', sans-serif;
+    text-align : center;
+    font-size: 15px;
+    color : rgb(255, 0, 0);
+    margin-top : 0px;
+    margin-bottom: 0px;
+  }
+  
+.error-Msgdb2{
+  font-family: 'Montserrat',  'Roboto', sans-serif;
+  text-align : center;
+  font-size: 15px;
+  color : rgb(255, 255, 255);
+  margin-top : -18.5px;
+  margin-bottom: 0px;
+}
+
+.connecter{
+    margin : 10px;
+    padding: 10px 25px;
+    border-radius: 75px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #535771;
+    outline:none;
+    cursor: pointer;
+    border : 1px solid;
+    font-family: 'Montserrat',  'Roboto', sans-serif;
+  }
+.connecter:hover{
+  background-color: #fff;
+  color:cornflowerblue;
+  outline:solid;
+  font-weight: bold;
+  }
+
+  form p.inscription{
+    font-size: 14px;
+    margin-top : -2.5px;
+    margin-bottom: 20px;
+    color: #535771;
+    text-align : center;
+
+  } 
+form p.inscription span{
+    color: #535771;
+  }
+
+  .inscrire{
+    margin-top : -20px;
+    padding: 7px 15px;
+    border-radius: 75px;
+    font-size: 15px;
+    color: #fff;
+    background-color: #535771;
+    outline:none;
+    cursor: pointer;
+    border : 1px solid;
+    font-family: 'Montserrat',  'Roboto', sans-serif;
+  }
+  .inscrire:hover{
+    background-color: #fff;
+    color:cornflowerblue;
+    outline:solid;
+    font-weight: bold;
+  }
+
+/* a{
+  color:#fff;
+  text-decoration : none;
+} */
+
+#mail:hover{
+  color : gold;
+}
+
+@media screen and (max-width :650px ){
+  h2{
+    font-size : 70px;
+  }
+  div h2 i{
+      width: 80px;
+      font-size : 70px;
+  }
+  .formulaire {
+    margin-top: -30px;
+  }
+}
+
+@media screen and (max-width :600px ){
+  h2{
+    font-size : 60px;
+  }
+
+  div h2 i{
+      width: 70px;
+      font-size : 60px;
+  }
+  .formulaire {
+    margin-top: -30px;
+  }
+}
+
+@media screen and (max-width :540px ){
+  h2{
+    font-size : 55px;
+  }
+
+  div h2 i{
+      width: 60px;
+      height : 30px;
+      font-size : 55px;
+  }
+  .formulaire {
+    margin-top: -30px;
+  }
+}
+
+@media screen and (max-width :500px ){
+  h2{
+    font-size : 45px;
+  }
+  div h2 i{
+      width: 60px;
+      height : 25px;
+      font-size : 45px;
+  }
+  .formulaire {
+    margin-top: -30px;
+    width : 200px;
+    padding: 20px 40px;
+  }
+  form h1{
+   font-size : 25px;
+  }
+  
+form p.choose-email{
+  font-size: 15px;
+}
+}
+@media screen and (max-width :400px ){
+  h2{
+    font-size : 35px;
+  }
+  div h2 i{
+      width: 50px;
+      height : 25px;
+      font-size : 35px;
+  }
+  .formulaire {
+    margin-top: -20px;
+    width : 160px;
+    padding: 20px 20px;
+  }
+}
+@media screen and (max-width :360px ){
+  h2{
+    font-size : 35px;
+  }
+  div h2 i{
+      width: 50px;
+      height : 25px;
+      font-size : 35px;
+  }
+  .formulaire {
+    margin-top: -20px;
+    width : 100px;
+    padding: 10px 15px;
+  }
+  form .social-media{
+    margin-top: 0px;
+    display: flex;
+    flex-wrap:wrap;
+    justify-content:center; 
+  }
+form .social-media p{
+    padding: 5px;
+    width: 20px;
+    margin-left: 10px;
+    border-radius: 100%;
+    border: 1px solid #ffd700;
+    text-align: center;
+    cursor:pointer;
+    color: #111a57;
+  }
+  .inscrire{
+    margin-bottom : 10px;
+  }
+}
+@media screen and (max-width :350px ){
+  h2{
+    font-size : 35px;
+  }
+  div h2 i{
+      width: 40px;
+      height : 25px;
+      font-size : 35px;
+  }
+  .formulaire {
+    margin-top: -20px;
+    width : 80px;
+    padding: 3px 5px;
+  }
+  .inscrire{
+    font-size : 12.5px;
+    margin-bottom : 10px;
+  }
+  .connecter{
+    font-size : 12.5px;
+  }
+}
+@media screen and (max-width :325px ){
+  h2{
+    font-size : 35px;
+  }
+  div h2 i{
+      width: 40px;
+      height : 25px;
+      font-size : 35px;
+  }
+  .formulaire {
+    margin-top: -20px;
+    width : 50px;
+    padding: 1.5px 2.5px;
+  }
+
+  form .inputs input[type='email'], input[type='password']{
+    padding: 10px;
+    margin-bottom: 10px;
+  }
+
+  .inscrire{
+    font-size : 12.5px;
+    margin-bottom : 10px;
+  }
+  .connecter{
+    font-size : 12.5px;
+  }
+}
