@@ -15,9 +15,9 @@
             <div id="logo"></div>
             <div id="recherche"></div>
             <div id="onglets">
-                <a class="onglet" href="presentation.php"><b>Accueil</b></a>
+                <a class="onglet" href="index.php"><b>Accueil</b></a>
                 <a class="onglet"><b>Developpeurs</b></a>
-                <a class="onglet" href="presentation.php?connexion=tentative"><b>connexion</b></a>
+                <a class="onglet" href="index.php?connexion=tentative"><b>connexion</b></a>
             </div>
         </header>
         <div id="titre-principal">LE SITE OFFICIEL D'INFORMATIONS</div>
@@ -38,7 +38,7 @@
                     }
                     elseif(isset($_GET['action'])=='inscrit'){
                         $username = $_POST['username'] ;
-                        $pswd   =  $_POST['passwd'] ;
+                        $pswd     =  $_POST['passwd'] ;
                         $obj->verifyLogin($username, $pswd);
                     }
                     else{

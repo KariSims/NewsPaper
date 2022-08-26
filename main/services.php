@@ -15,7 +15,7 @@ class desServices extends linkDB{
             $idCategorie = $categorie['id'];
             $libelle = $categorie['libelle'];
             ?>
-            <a class="categorie" href="presentation.php?categorie=<?=$idCategorie?>"><?= $libelle ?></a>
+            <a class="categorie" href="index.php?categorie=<?=$idCategorie?>"><?= $libelle ?></a>
             <?php
         }
     }
@@ -31,8 +31,8 @@ class desServices extends linkDB{
             $idCategorie = $article['categorie'];
             ?>
 
-                <a id="titre-article" id="titre-article" href="presentation.php?categorie=<?=$idCategorie?>&article=<?=$idArticle?>"><?= $titre ?></a>
-                <p id="contenu-principal"><?= substr($contenu,0,120)?> &nbsp<a href="presentation.php?categorie=<?=$idCategorie?>&article=<?=$idArticle?>">more...</a></p>
+                <a id="titre-article" id="titre-article" href="index.php?categorie=<?=$idCategorie?>&article=<?=$idArticle?>"><?= $titre ?></a>
+                <p id="contenu-principal"><?= substr($contenu,0,120)?> &nbsp<a href="index.php?categorie=<?=$idCategorie?>&article=<?=$idArticle?>">more...</a></p>
 
             <?php
         }
@@ -48,7 +48,7 @@ class desServices extends linkDB{
             $contenu   = $article['contenu'];
             ?>
 
-                <a id="titre-article" href="presentation.php?categorie=<?=$idCategorie?>&article=<?=$idArticle?>"><?= $titre ?></a>
+                <a id="titre-article" href="index.php?categorie=<?=$idCategorie?>&article=<?=$idArticle?>"><?= $titre ?></a>
                 <p id="contenu-principal"><?= $contenu ?></p>
 
             <?php
@@ -76,7 +76,7 @@ class desServices extends linkDB{
         ?>
         <link rel="stylesheet" href="../.style/connexion.css" type="text/css"/>
 
-            <form class="formulaire" method="post" action="presentation.php?action=inscrit">
+            <form class="formulaire" method="post" action="index.php?action=inscrit">
             <!-- <form class="formulaire" method="post" action="../auth/Traitement.php"> -->
 
             <h1>Connexion à Votre Espace Personnel</h1>
@@ -100,7 +100,7 @@ class desServices extends linkDB{
                 <p class="inscription">Cliquez sur <span>Inscrire</span> afin de créér un compte pour Inscrire un membre</p>        
             </form>
             <div align="center">
-                <a  href="presentation.php?connexion=inscrit"><button class="inscrire" type="submit">Inscrire</button></a>
+                <a  href="index.php?connexion=inscrit"><button class="inscrire" type="submit">Inscrire</button></a>
             </div>
         <?php
     }
@@ -125,7 +125,7 @@ class desServices extends linkDB{
                     $_SESSION['passwd']   = $pwd;
                     $_SESSION['id']       = $id ;
 
-                    header("Location: ../index.php");
+                    header("Location: index.php");
                 }
             }else{
                 $this->loginForm();
