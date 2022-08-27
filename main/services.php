@@ -77,7 +77,6 @@ class desServices extends linkDB{
         <link rel="stylesheet" href="../.style/connexion.css" type="text/css"/>
 
             <form class="formulaire" method="post" action="index.php?action=inscrit">
-            <!-- <form class="formulaire" method="post" action="../auth/Traitement.php"> -->
 
             <h1>Connexion à Votre Espace Personnel</h1>
             
@@ -144,9 +143,8 @@ class desServices extends linkDB{
 
     public function verifyLogin($username, $pswd){
    
-        $profils = $this->connexionBD()->query("SELECT * FROM profil WHERE username = "."'$username'"." AND passwd = "."'$pswd'");
-        
         try{
+            $profils = $this->connexionBD()->query("SELECT * FROM profil WHERE username = "."'$username'"." AND passwd = "."'$pswd'");
 
             if($user = $profils->fetch()){
 
@@ -170,6 +168,49 @@ class desServices extends linkDB{
         }
         catch(PDOException $erreur){
             die('Erreur de connexion : '.$erreur->getMessage());
+        }
+    }
+
+    public function compare2password($pwd, $pwd2){
+
+        if ( $pwd == $pwd2 ){
+            //requête SQL + mot de passe securisé et crypté ("utilisateur")
+            $comptpwd = 0;
+            $longueur1=strlen($pwd);
+                
+            for($i=0;$i<$longueur1;$i++){
+                $caractere1=substr($pwd,$i,1);
+                if((ord($caractere1) >31) && (ord($caractere1) < 97)){
+                    $comptpwd =$comptpwd + 1;
+                }
+            }
+            
+            if($comptpwd == 0){
+                $messageresult ="Format du mot de passé non respecté";
+            }
+        }else{
+            $messageresult = "Le mot de passe saisi n'est pas identique";
+        }
+    }
+
+    public function inscription($pseudo,$usname,$pwd,$priv){
+
+        $exist = 0;
+        $Mails = $this->connexionBD()->query("SELECT * FROM profil;");
+        
+        foreach($mailExist = $Mails->fetch()){
+            if($pwd==$mailExist['passwd']){
+                $exist = $exist+1;
+                $messageresult = "Le mail saisi est déjà utilisé, veuillez trouver un autre!" ;
+            }
+        }
+        if($exist=0){
+            try{
+                $inscription = $this->connexionBD()->query("INSERT INTO profil VALUES (0,'$pseudo','$usname','$pwd','$priv');");
+            }catch(PDOException $erreur){
+                die('Erreur de connexion : '.$erreur->getMessage());
+            }
+
         }
     }
 }
