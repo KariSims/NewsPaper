@@ -117,7 +117,10 @@ class desServices extends linkDB{
                     <div class="inputs">
                         <input type="text" name="nom" id="nom" placeholder="Saisir le pseudo" minlength="3" required />
                         <input type="email" name="email" id="email" placeholder="Saisir l'email" size="40" minlength="9"  maxlength="50" required/>
-                        <input type="tel" name="tel" id="tel"  placeholder="le nivea de privilege de l'inscrit(e)" required/>   
+                        <select name="privilege" id="tel"  placeholder="le niveau de privilege de l'inscrit(e)" required>
+                            <option value=2>Editeur</option>
+                            <option value=1>Admin</option>
+                        </select>
                         <input type="password" name="Mdp" id="Mdp" placeholder="Saisir votre mot de passe" minlength="8" required/>
                         <p class="warning">Un caractère spécial, une lettre majuscule ou un chiffre est réquis*</p>
                         <input type="password" name="Mdp2" id="Mdp2" minlength="8" required placeholder="Confirmer votre mot de passe"/>
